@@ -6,27 +6,26 @@ import jakarta.persistence.*;
 @Table
 public class Account {
     @Id
-    int AccountID;
-    String Email;
-    String Password;
+    private Long AccountID;
+    private String Email;
+    private String Password;
 
     public Account() {
 
     }
 
-    enum role {Student, Teacher, Admin}
 
-    public Account(int accountID, String email, String password) {
+    public Account(Long accountID, String email, String password) {
         AccountID = accountID;
         Email = email;
         Password = password;
     }
 
-    public int getAccountID() {
+    public Long getAccountID() {
         return AccountID;
     }
 
-    public void setAccountID(int accountID) {
+    public void setAccountID(Long accountID) {
         AccountID = accountID;
     }
 

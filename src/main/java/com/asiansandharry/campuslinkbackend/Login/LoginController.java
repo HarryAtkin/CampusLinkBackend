@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController//Makes this class a controller class at the mapping below so this is what runs when the user goes to the below url
 @RequestMapping(path = "api/v1/login")
@@ -18,14 +19,26 @@ public class LoginController {
     }
 
     //@CrossOrigin(origins = "http://127.0.0.1:5500") //Research
-    @GetMapping
+    /*@GetMapping
     public List<Account> getAccounts() {
         return loginService.getAccounts();
     }
 
+     */
+
+
+
+    @GetMapping
+    public List<String> isLogged() {
+        return loginService.getIsLoggedIn();
+    }
+
+
     @PostMapping
-    public void notsure(@RequestBody String  Data){
+    public void notsure(@RequestBody String Data){
         loginService.Authenticate(Data);
     }
+
+
 
 }

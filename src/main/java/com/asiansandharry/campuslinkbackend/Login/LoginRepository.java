@@ -10,9 +10,9 @@ import java.util.Optional;
 
 //This interface deals with data access from the database
 @Repository
-public interface LoginRepository extends JpaRepository<Account, Integer> { //Passes in the account class and interger since that's its primary key (@Id)
+public interface LoginRepository extends JpaRepository<Account, Long> { //Passes in the account class and interger since that's its primary key (@Id)
 
-    @Query("SELECT s.AccountID FROM Account s WHERE s.Email = s.Email")
-    Optional<Account> findByEmail(String Email);
+    @Query("SELECT s FROM Account s WHERE s.Email = :email")
+    Optional<Account> findByEmail(String email);
 
 }
