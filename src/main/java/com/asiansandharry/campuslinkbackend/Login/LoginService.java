@@ -15,20 +15,10 @@ import java.util.List;
 public class LoginService {
 
     private final LoginRepository loginRepository; //This allows us the access the database.
-    private boolean isLoggedIn = false;
 
     @Autowired
     public LoginService(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
-    }
-
-    public List<Account> getAccounts() {
-        //return loginRepository.findAll();
-        Account Account1 = new Account();
-        Account1.setAccountID(0L);
-        Account1.setPassword("password");
-        Account1.setEmail("H@gmail.com");
-        return List.of(Account1);
     }
 
     public void Authenticate(String data) {
@@ -46,35 +36,10 @@ public class LoginService {
 
 
         if(password.equals(account.getPassword())) {
-            //Something to determine login is successful
             throw new ResponseStatusException(HttpStatus.ACCEPTED, "Correct Password");
         }
         else{
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect Email or Password");
         }
-
-
-
-
-        /*if(password.equals("password1232")) {
-            isLoggedIn = true;
-        }
-        else{
-            isLoggedIn = false;
-        }
-
-         */
-
-
-        //System.out.println("Email: " + email);
-        //System.out.println("Password: " + password);
-
-        //System.out.println(data);
-    }
-
-    public List<String> getIsLoggedIn() {
-        String temp = "{isLogged='" + isLoggedIn + "'}";
-        JsonObject DataJson = JsonParser.parseString(temp).getAsJsonObject();
-        return List.of(DataJson.get("isLogged").getAsString());
     }
 }
