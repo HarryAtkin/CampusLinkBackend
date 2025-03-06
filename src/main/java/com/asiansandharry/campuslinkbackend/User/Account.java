@@ -14,7 +14,6 @@ public class Account {
 
     }
 
-
     public Account(Long accountID, String email, String password) {
         AccountID = accountID;
         Email = email;
