@@ -20,7 +20,7 @@ public class LoginController {
     }
 
     //POST method that takes in the http body and checks it against the database.
-    @PostMapping
+    @PostMapping()
     public void Authenticate(@RequestBody String Data){
         loginService.Authenticate(Data);
     }
