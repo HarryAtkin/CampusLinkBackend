@@ -31,7 +31,6 @@ public class LoginService {
 
         Account account = loginRepository.findByEmail(email).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect Email or Password"));
-        System.out.println(account);
 
 
 
