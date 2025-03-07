@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @RestController//Makes this class a controller class at the mapping below so this is what runs when the user goes to the below url
 @RequestMapping(path = "api/v1/login")
-@CrossOrigin(origins = "http://127.0.0.1:5500/")
+@CrossOrigin(origins = "http://localhost:5500/")
 public class LoginController {
     private final LoginService loginService; //Allows us to perform any of the business logic
 
@@ -20,7 +20,7 @@ public class LoginController {
     }
 
     //POST method that takes in the http body and checks it against the database.
-    @PostMapping
+    @PostMapping()
     public void Authenticate(@RequestBody String Data){
         loginService.Authenticate(Data);
     }
