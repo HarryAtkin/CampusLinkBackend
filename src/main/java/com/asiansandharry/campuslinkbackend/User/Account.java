@@ -18,9 +18,8 @@ public class Account {
     private String fName;
     private Date DOB;
 
-    public Account() {    }
-
-
+    public Account() {}
+  
     public Account(Long accountID, Long universityID, String email, String password, String role, String lName, String fName, Date DOB) {
         AccountID = accountID;
         UniversityID = universityID;
