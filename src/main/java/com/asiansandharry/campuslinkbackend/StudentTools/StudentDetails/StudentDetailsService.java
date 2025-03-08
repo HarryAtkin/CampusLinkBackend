@@ -18,7 +18,7 @@ public class StudentDetailsService {
 
     public List<String> Attendance(){
         List<String> attendance = new ArrayList<>();
-        attendance.add(studentDetailsRepository.getAttendanceByLesson(0, 1));
+        //attendance.add(studentDetailsRepository.getAttendanceByLesson(0, 1));
         return attendance;
     }
 

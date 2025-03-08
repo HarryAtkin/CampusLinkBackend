@@ -10,7 +10,9 @@ public class Annoucement {
     @Id
     private long AnnoucementID;
     /* Foreign Key from ChatRoom table */
-    private long ChatRoomID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "ChatRoomID")
+    ChatRoom chatRoom;
     /* Foreign Key from Account table */
     private long AccountID;
     private Date datePosted;
@@ -19,9 +21,9 @@ public class Annoucement {
 
     public Annoucement() {}
 
-    public Annoucement(long AnnoucementID, long ChatRoomID, long AccountID, Date datePosted, String annoucementTitle, String annoucementDescription) {
+    public Annoucement(long AnnoucementID, ChatRoom chatRoom, long AccountID, Date datePosted, String annoucementTitle, String annoucementDescription) {
         this.AnnoucementID = AnnoucementID;
-        this.ChatRoomID = ChatRoomID;
+        this.chatRoom = chatRoom;
         this.AccountID = AccountID;
         this.datePosted = datePosted;
         this.annoucementTitle = annoucementTitle;
@@ -36,12 +38,12 @@ public class Annoucement {
         AnnoucementID = annoucementID;
     }
 
-    public long getChatRoomID() {
-        return ChatRoomID;
+    public ChatRoom getChatRoomID() {
+        return chatRoom;
     }
 
-    public void setChatRoomID(long chatRoomID) {
-        ChatRoomID = chatRoomID;
+    public void setChatRoomID(ChatRoom chatRoomID) {
+        chatRoom = chatRoom;
     }
 
     public long getAccountID() {
@@ -80,7 +82,7 @@ public class Annoucement {
     public String toString() {
         return "Annoucement{" +
                 "AnnoucementID=" + AnnoucementID +
-                ", ChatRoomID='" + ChatRoomID + '\'' +
+                ", ChatRoomID='" + chatRoom + '\'' +
                 ", AccountID='" + AccountID + '\'' +
                 ", datePosted='" + datePosted + '\'' +
                 ", annoucementTitle='" + annoucementTitle + '\'' +

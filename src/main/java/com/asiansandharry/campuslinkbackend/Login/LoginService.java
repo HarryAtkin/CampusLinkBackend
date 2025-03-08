@@ -1,14 +1,12 @@
 package com.asiansandharry.campuslinkbackend.Login;
 
-import com.asiansandharry.campuslinkbackend.User.Account;
+import com.asiansandharry.campuslinkbackend.dbTables.Account;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.util.List;
 
 //This handles the business logic (so functionality)
 @Service

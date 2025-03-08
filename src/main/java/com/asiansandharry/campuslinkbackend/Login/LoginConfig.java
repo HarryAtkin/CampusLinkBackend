@@ -1,13 +1,8 @@
 package com.asiansandharry.campuslinkbackend.Login;
 
-import com.asiansandharry.campuslinkbackend.User.Account;
-import com.asiansandharry.campuslinkbackend.User.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Configuration
 public class LoginConfig {

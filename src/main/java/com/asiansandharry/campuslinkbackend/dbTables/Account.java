@@ -1,4 +1,4 @@
-package com.asiansandharry.campuslinkbackend.User;
+package com.asiansandharry.campuslinkbackend.dbTables;
 
 import jakarta.persistence.*;
 
@@ -10,7 +10,9 @@ public class Account {
     @Id
     private Long AccountID;
     /* Foreign Key from University table */
-    private Long UniversityID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "UniversityID")
+    private University university;
     private String Email;
     private String Password;
     private String Role;
@@ -20,9 +22,9 @@ public class Account {
 
     public Account() {}
   
-    public Account(Long accountID, Long universityID, String email, String password, String role, String lName, String fName, Date DOB) {
+    public Account(Long accountID, University university, String email, String password, String role, String lName, String fName, Date DOB) {
         AccountID = accountID;
-        UniversityID = universityID;
+        university = university;
         Email = email;
         Password = password;
         Role = role;
@@ -34,7 +36,7 @@ public class Account {
     /* ----- Getters ----- */
     public Long getAccountID() {return AccountID;}
 
-    public long getUniversityID() {return UniversityID;}
+    public University getUniversity() {return university;}
 
     public String getEmail() {return Email;}
 
@@ -53,8 +55,8 @@ public class Account {
         AccountID = accountID;
     }
 
-    public void setUniversityID(Long universityID) {
-        UniversityID = universityID;
+    public void setUniversity(University university) {
+        university = university;
     }
     public void setEmail(String email) {
         Email = email;
@@ -84,7 +86,7 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "AccountID=" + AccountID +
-                ", UniversityID='" + UniversityID + '\'' +
+                ", UniversityID='" + university + '\'' +
                 ", Email='" + Email + '\'' +
                 ", Password='" + Password + '\'' +
                 ", Role='" + Role + '\'' +

@@ -1,11 +1,7 @@
 package com.asiansandharry.campuslinkbackend.Login;
 
-import com.asiansandharry.campuslinkbackend.User.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController//Makes this class a controller class at the mapping below so this is what runs when the user goes to the below url
 @RequestMapping(path = "api/v1/login")
