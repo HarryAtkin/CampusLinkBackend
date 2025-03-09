@@ -10,18 +10,22 @@ public class Comment {
     @Id
     private long CommentID;
     /* Foreign Key from Annoucement table */
-    private long AnnoucementID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "ChatRoomID")
+    private ChatRoom ChatRoom;
     /* Foreign Key from Account table */
-    private long AccountID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "accountid")
+    private Account Account;
     private String comment;
     private Date commentDate;
 
     public Comment() {}
 
-    public Comment(long CommentID, long AnnoucementID, long accountID, String comment, Date commentDate) {
+    public Comment(long CommentID, ChatRoom ChatRoom, Account Account, String comment, Date commentDate) {
         this.CommentID = CommentID;
-        this.AnnoucementID = AnnoucementID;
-        this.AccountID = accountID;
+        this.ChatRoom = ChatRoom;
+        this.Account = Account;
         this.comment = comment;
         this.commentDate = commentDate;
     }
@@ -34,20 +38,20 @@ public class Comment {
         CommentID = commentID;
     }
 
-    public long getAnnoucementID() {
-        return AnnoucementID;
+    public ChatRoom getChatRoom() {
+        return ChatRoom;
     }
 
-    public void setAnnoucementID(long annoucementID) {
-        AnnoucementID = annoucementID;
+    public void setChatRoom(ChatRoom ChatRoom) {
+        ChatRoom = ChatRoom;
     }
 
-    public long getAccountID() {
-        return AccountID;
+    public Account getAccountID() {
+        return Account;
     }
 
-    public void setAccountID(long accountID) {
-        this.AccountID = accountID;
+    public void setAccountID(Account account) {
+        this.Account = account;
     }
 
     public String getComment() {
@@ -70,8 +74,8 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "CommentID=" + CommentID +
-                ", AnnoucementID='" + AnnoucementID + '\'' +
-                ", AccountID='" + AccountID + '\'' +
+                ", ChatRoom='" + ChatRoom + '\'' +
+                ", Account='" + Account + '\'' +
                 ", comment='" + comment + '\'' +
                 ", commentDate='" + commentDate + '\'' +
                 '}';

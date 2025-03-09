@@ -10,35 +10,41 @@ public class AccountLesson {
     /* Composite Primary Key AccountID & LessonID*/
     @Id
     /* Foreign Key from Account table */
-    private long AccountID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "accountid")
+    private Account Account;
     /* Foreign Key from Lesson table */
-    private long LessonID;
+
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "Lessonid")
+    private Lesson Lesson;
     private Boolean attended;
     private String reason;
 
     public AccountLesson() {}
 
-    public AccountLesson(long AccountID, long LessonID, Boolean attended, String reason) {
-        this.AccountID = AccountID;
-        this.LessonID = LessonID;
+    public AccountLesson(Account Account, Lesson Lesson, Boolean attended, String reason) {
+        this.Account = Account;
+        this.Lesson = Lesson;
         this.attended = attended;
         this.reason = reason;
     }
 
-    public long getAccountID() {
-        return AccountID;
+    public Account getAccount() {
+        return Account;
     }
 
-    public void setAccountID(long accountID) {
-        AccountID = accountID;
+    public void setAccount(Account account) {
+        Account = account;
     }
 
-    public long getLessonID() {
-        return LessonID;
+    public Lesson getLesson() {
+        return Lesson;
     }
 
-    public void setLessonID(long lessonID) {
-        LessonID = lessonID;
+    public void setLesson(Lesson lesson) {
+        Lesson = lesson;
     }
 
     public Boolean getAttended() {
@@ -60,8 +66,8 @@ public class AccountLesson {
     @Override
     public String toString() {
         return "AccountLesson{" +
-                "AccountID=" + AccountID +
-                ", LessonID='" + LessonID + '\'' +
+                "Account=" + Account +
+                ", Lesson='" + Lesson + '\'' +
                 ", attended='" + attended + '\'' +
                 ", reason='" + reason + '\'' +
                 '}';

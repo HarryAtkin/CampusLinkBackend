@@ -12,8 +12,10 @@ public class Annoucement {
     /* Foreign Key from ChatRoom table */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(columnDefinition = "ChatRoomID")
-    ChatRoom chatRoom;
+    private ChatRoom chatRoom;
     /* Foreign Key from Account table */
+
+
     private long AccountID;
     private Date datePosted;
     private String annoucementTitle;

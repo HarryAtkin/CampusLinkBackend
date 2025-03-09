@@ -11,38 +11,43 @@ public class ModuleAccount {
     /* Composite Primary Key ModuleID & AccountID*/
     @Id
     /* Foreign Key from Module table */
-    private long ModuleID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "ModuleId")
+    private Module Module;
     /* Foreign Key from Account table */
-    private long AccountID;
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "accountid")
+    private Account Account;
 
     public ModuleAccount() {}
 
-    public ModuleAccount(long ModuleID, long AccountID) {
-        this.ModuleID = ModuleID;
-        this.AccountID = AccountID;
+    public ModuleAccount(Module Module, Account Account) {
+        this.Module = Module;
+        this.Account = Account;
     }
 
-    public long getModuleID() {
-        return ModuleID;
+    public Module getModule() {
+        return Module;
     }
 
-    public void setModuleID(long moduleID) {
-        ModuleID = moduleID;
+    public void setModule(Module module) {
+        Module = module;
     }
 
-    public long getAccountID() {
-        return AccountID;
+    public Account getAccount() {
+        return Account;
     }
 
-    public void setAccountID(long accountID) {
-        AccountID = accountID;
+    public void setAccount(Account account) {
+        Account = account;
     }
 
     @Override
     public String toString() {
         return "ModuleAccounts{" +
-                "ModuleID=" + ModuleID +
-                ", AccountID ='" + AccountID + '\'' +
+                "Module=" + Module +
+                ", Account ='" + Account + '\'' +
                 '}';
     }
 }

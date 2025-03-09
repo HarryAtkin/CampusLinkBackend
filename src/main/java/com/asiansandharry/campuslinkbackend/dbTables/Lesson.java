@@ -10,19 +10,23 @@ public class Lesson {
     @Id
     private long LessonId;
     /* Foreign Key from Module table */
-    private long ModuleID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "ModuleID")
+    private Module Module;
     /* Foreign Key from Room table */
-    private String RoomNo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "RoomNo")
+    private Room Room;
     private Date StartDate;
     private Date EndDate;
 
     public Lesson() {
     }
 
-    public Lesson(long LessonId, long ModuleID, String RoomNo, Date StartDate, Date EndDate) {
+    public Lesson(long LessonId, Module Module, Room Room, Date StartDate, Date EndDate) {
         this.LessonId = LessonId;
-        this.ModuleID = ModuleID;
-        this.RoomNo = RoomNo;
+        this.Module = Module;
+        this.Room = Room;
         this.StartDate = StartDate;
         this.EndDate = EndDate;
     }
@@ -35,20 +39,20 @@ public class Lesson {
         LessonId = lessonId;
     }
 
-    public long getModuleID() {
-        return ModuleID;
+    public Module getModule() {
+        return Module;
     }
 
-    public void setModuleID(long moduleID) {
-        ModuleID = moduleID;
+    public void setModule(Module module) {
+        Module = module;
     }
 
-    public String getRoomNo() {
-        return RoomNo;
+    public Room getRoom() {
+        return Room;
     }
 
-    public void setRoomNo(String roomNo) {
-        RoomNo = roomNo;
+    public void setRoom(Room room) {
+        Room = room;
     }
 
     public Date getStartDate() {
@@ -71,8 +75,8 @@ public class Lesson {
     public String toString() {
         return "Lesson{" +
                 "LessonId=" + LessonId +
-                ", ModuleID='" + ModuleID + '\'' +
-                ", RoomNo='" + RoomNo + '\'' +
+                ", Module='" + Module + '\'' +
+                ", Room='" + Room + '\'' +
                 ", StartDate='" + StartDate + '\'' +
                 ", EndDate='" + EndDate + '\'' +
                 '}';

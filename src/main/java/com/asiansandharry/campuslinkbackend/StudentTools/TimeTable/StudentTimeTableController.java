@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "api/v1/studentTools/timeTable")
 @CrossOrigin()//Not decided yet.
-public class TimeTableController {
+public class StudentTimeTableController {
 }

@@ -8,13 +8,15 @@ public class ChatRoom {
     @Id
     private long ChatRoomID;
     /* Foreign Key from Module table */
-    private long ModuleID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(columnDefinition = "ModuleID")
+    private Module Module;
 
     public ChatRoom() {}
 
-    public ChatRoom(long ChatRoomID, long ModuleID) {
+    public ChatRoom(long ChatRoomID, Module Module) {
         this.ChatRoomID = ChatRoomID;
-        this.ModuleID = ModuleID;
+        this.Module = Module;
     }
 
     public long getChatRoomID() {
@@ -25,19 +27,17 @@ public class ChatRoom {
         ChatRoomID = chatRoomID;
     }
 
-    public long getModuleID() {
-        return ModuleID;
-    }
+    public Module getModule() {return Module;}
 
-    public void setModuleID(long moduleID) {
-        ModuleID = moduleID;
+    public void setModuleID(Module module) {
+        Module = module;
     }
 
     @Override
     public String toString() {
         return "ChatRoom{" +
                 "ChatRoomID=" + ChatRoomID +
-                ", ModuleID='" + ModuleID + '\'' +
+                ", Module='" + Module + '\'' +
                 '}';
     }
 }
