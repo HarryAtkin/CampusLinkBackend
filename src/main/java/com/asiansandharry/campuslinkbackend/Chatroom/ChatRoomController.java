@@ -29,7 +29,7 @@ public class ChatRoomController {
     }
 
     @GetMapping(path = "/Room")
-    public Optional<List<String>> GetChatroomChats(){
+    public List<String> GetChatroomChats(){
         return chatroomService.getComments();
     }
 
@@ -37,4 +37,11 @@ public class ChatRoomController {
     public void ChatRoomOption(@RequestBody String data){
         chatroomService.ChatRoomOption(data);
     }
+
+    @PostMapping(path = "/Room/send")
+    public void send(@RequestBody String data){
+        chatroomService.send(data);
+    }
+
+
 }
