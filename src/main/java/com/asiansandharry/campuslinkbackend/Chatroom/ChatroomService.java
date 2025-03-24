@@ -17,6 +17,10 @@ public class ChatroomService {
     private String UID;
     private String Option;
 
+    public String getUID() {
+        return UID;
+    }
+
     @Autowired
     public ChatroomService(ChatRoomComment chatRoomComment) {
         this.chatRoomComment = chatRoomComment;
