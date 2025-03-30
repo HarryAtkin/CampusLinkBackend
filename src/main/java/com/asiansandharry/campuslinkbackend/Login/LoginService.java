@@ -33,7 +33,9 @@ public class LoginService {
 
 
         if(password.equals(account.getPassword())) {
-            throw new ResponseStatusException(HttpStatus.ACCEPTED, "Correct Password");
+            if(account.getRole().equals("Student")) throw new ResponseStatusException(HttpStatus.ACCEPTED, "Correct Password");
+            else if (account.getRole().equals("Teacher")) throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "Correct Password");
+            else if (account.getRole().equals("Admin")) throw new ResponseStatusException(HttpStatus.OK, "Correct Password");
         }
         else{
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect Email or Password");

@@ -16,13 +16,18 @@ public class StudentDetailsController {
         this.studentDetailsService = studentDetailsService;
     }
 
-    @PostMapping(path = "api/v1/authenticated")
-    public void isAuthenticated(@RequestBody String body){
-
+    @PostMapping()
+    public void setUID(@RequestBody String body){
+        studentDetailsService.setUID(body);
     }
 
-    @GetMapping()
-    public List<String> Attendance(){
+    @GetMapping(path = "/Name")
+    public List<List<String>> getName(){
+        return studentDetailsService.getName();
+    }
+
+    @GetMapping("/Attendance")
+    public List<List<String>> Attendance(){
         return studentDetailsService.Attendance();
     }
 
