@@ -7,7 +7,8 @@ INSERT INTO university (universityid, university_address, university_name) VALUE
 
 
 
-INSERT INTO account (accountid, dob, university_universityid, email, f_name, l_name, password, role) VALUES 
+INSERT INTO account (accountid, dob, university_universityid, email, f_name, l_name, password, role) VALUES
+
 (0, '2005-08-17', 0,'H@email.com', 'Harry', 'Atkinson', 'Test', 'Student'),
 (1, '2005-06-23', 0,'JJ@email.com', 'James', 'Johnson', 'Test1', 'Student'),
 (2, '2003-06-25', 0, 'james.smith@email.com', 'James', 'Smith', 'password123', 'Student'),
@@ -19,7 +20,6 @@ INSERT INTO account (accountid, dob, university_universityid, email, f_name, l_n
 (8, '2002-04-18', 0, 'jacob.white@email.com', 'Jacob', 'White', 'jake2023', 'Student'),
 (9, '2004-01-22', 1, 'mia.harris@email.com', 'Mia', 'Harris', 'helloworld', 'Student'),
 (10, '2001-12-30', 2, 'benjamin.clark@email.com', 'Benjamin', 'Clark', 'clarkben123', 'Student');
-
 
 INSERT INTO account (accountid, dob, university_universityid, email, f_name, l_name, password, role) VALUES 
 (11, '1974-04-23', 1, 'john@teacher.com', 'John', 'Smith', 'Teacher1', 'Teacher'),
